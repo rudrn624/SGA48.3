@@ -107,7 +107,10 @@ void LinkedList::remove_back()
 
 	_size--;
 }
-
+void LinkedList::go_front()
+{
+	current = head;
+}
 void LinkedList::next()
 {
 	if (current->next == tail)
@@ -124,11 +127,11 @@ void LinkedList::prev()
 }
 LinkedList::Node* LinkedList::begin() const
 {
-	return head->next;
+	return head;
 }
 LinkedList::Node* LinkedList::end() const
 {
-	return tail;
+	return tail->prev;
 }
 bool LinkedList::empty() const
 {

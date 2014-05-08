@@ -86,7 +86,7 @@ int main(void)
 				three.GetPosition(x, y);
 				pBullet->SetPosition(x, y);
 
-				bulletDepot.insert_front(pBullet);
+				bulletDepot.insert(pBullet);
 			}
 		} // if (_kbhit())
 
@@ -102,19 +102,19 @@ int main(void)
 				enemies[i]->Update();
 		}
 		LinkedList::Node* it;
-		for (it = bulletDepot.begin(); it != bulletDepot.end(); )
+		for (bulletDepot.go_front(), it = bulletDepot.begin(); it != bulletDepot.end();)
 		{
-			it->value->Update();
+			bulletDepot.value()->Update();
 
 			int x, y;
-			it->value->GetPosition(x, y);
+			bulletDepot.value()->GetPosition(x, y);
 			if (y < 0)
 			{
-				it = it->next;
-				bulletDepot.remove_front();
+				bulletDepot.remove();
 			}
 			else
 			{
+				bulletDepot.next();
 				it = it->next;
 			}
 		}
@@ -138,9 +138,10 @@ int main(void)
 			if (enemies[i])
 				enemies[i]->Draw(board);
 		}
-		for (it = bulletDepot.begin(); it != bulletDepot.end(); it = it->next)
+		for (bulletDepot.go_front(), it = bulletDepot.begin(); it != bulletDepot.end();
+			bulletDepot.next(), it = it->next)
 		{
-			it->value->Draw(board);
+			bulletDepot.value()->Draw(board);
 		}
 		//one.Draw(board);
 		//two.Draw(board);

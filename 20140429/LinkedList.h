@@ -47,6 +47,7 @@ public :
 	// end
 	void remove_back();
 
+	void go_front();
 	void next();
 	void prev();
 
