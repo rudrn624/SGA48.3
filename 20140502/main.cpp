@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// 숙제 했는감?
 int main(void)
 {
 	const int count = 10;
