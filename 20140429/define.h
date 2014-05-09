@@ -17,6 +17,15 @@ enum keycode_id
 	SPACE	= 0x20,
 };
 
+class Point
+{
+public :
+
+private :
+	int x;
+	int y;
+};
+
 void zero();
 
 class Shape
@@ -37,8 +46,9 @@ public :
 	void Draw(char *board);
 
 private :
-	int _x;
-	int _y;
+	Point center;
+	//int _x;
+	//int _y;
 	int _r;
 	int dx;
 };
@@ -52,8 +62,9 @@ public :
 	void Update();
 	void Draw(char *board);
 private :
-	int _x;
-	int _y;
+	Point center;
+	//int _x;
+	//int _y;
 	int _width;
 	int _height;
 	int dy;
@@ -70,8 +81,9 @@ public :
 	void Move(const int& dx, const int& dy);
 	void GetPosition(int& x, int& y);
 private :
-	int _x;
-	int _y;
+	Point center;
+	//int _x;
+	//int _y;
 	int _size;
 };
 

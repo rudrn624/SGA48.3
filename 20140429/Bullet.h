@@ -12,6 +12,7 @@ public :
 	void GetPosition(int& x, int& y);
 
 private :
-	int _x;
-	int _y;
+	Point pos;
+	//int _x;
+	//int _y;
 };

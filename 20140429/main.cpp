@@ -130,18 +130,25 @@ int main(void)
 		for (int i = 0; i < 3; i++)
 		{
 			if (some[i])
-				some[i]->Draw(board);
+			{
+				some[i] >> board;
+			}
+				//some[i]->Draw(board);
 		}
 
 		for (int i = 0; i < 3; i++)
 		{
 			if (enemies[i])
-				enemies[i]->Draw(board);
+			{
+				enemies[i] >> board;
+			}
+				//enemies[i]->Draw(board);
 		}
 		for (bulletDepot.go_front(), it = bulletDepot.begin(); it != bulletDepot.end();
 			bulletDepot.next(), it = it->next)
 		{
-			bulletDepot.value()->Draw(board);
+			bulletDepot.value() >> board;
+			//bulletDepot.value()->Draw(board);
 		}
 		//one.Draw(board);
 		//two.Draw(board);
