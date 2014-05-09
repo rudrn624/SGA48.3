@@ -4,80 +4,39 @@
 
 using namespace std;
 
+int MyStrCmp(const char* lhs, const char* rhs)
+{
+	int i = 0;
+
+	while (lhs[i] == rhs[i])
+	{
+		if (lhs[i] == '\0')
+			return 0;
+		i++;
+	}
+	if (lhs[i] > rhs[i])
+		return 1;
+
+	return -1;
+}
+
 int main(void)
 {
 	// 주석 추가.
 	Matrix a, b;
 
-	cout << "Matrix a : " << endl;
-	a.print();
-	cout << "Matrix b : " << endl;
-	b.print();
+	a["one"] = 5;
 
-	Matrix c;
+	cout << a << endl;
 
-	cout << "=====================" << endl;
-	cout << "c = a + b" << endl;
-	c = a + b;
+	a = 5;
 
-	cout << "Matrix a : " << endl;
-	a.print();
-	cout << "Matrix b : " << endl;
-	b.print();
-	cout << "Matrix c : " << endl;
-	c.print();
+	cout << a << endl;
 
-	cout << "=====================" << endl;
-	cout << "c = a - b" << endl;
-	c = a - b;
+	cout << ++a << endl;
 
-	cout << "Matrix a : " << endl;
-	a.print();
-	cout << "Matrix b : " << endl;
-	b.print();
-	cout << "Matrix c : " << endl;
-	c.print();
-
-	Matrix d(1.f,2.f,3.f,4.f);
-
-	cout << "=====================" << endl;
-	d.print();
-
-	cout << "=====================" << endl;
-	cout << "c = a * d" << endl;
-	c = a * d;
-
-	cout << "Matrix a : " << endl;
-	a.print();
-	cout << "Matrix d : " << endl;
-	d.print();
-	cout << "Matrix c : " << endl;
-	c.print();
-
-
-	cout << "=====================" << endl;
-	cout << "c = d * 3" << endl;
-	c = d * 3;
-
-//	c = d.operator * ( 3 );
-
-	cout << "Matrix d : " << endl;
-	d.print();
-	cout << "Matrix c : " << endl;
-	c.print();
-
-	cout << "=====================" << endl;
-	cout << "c = 3 * d" << endl;
-	c = 3 * d;
-
-	// 또다른 주석 추가.
-	cout << "Matrix d : " << endl;
-	cout << d << endl;
-	cout << "Matrix c : " << endl;
-	cout << c << endl;
-
-	cout << "=====================" << endl;
-	cout << a << b << c << d << endl;
+	cout << a++ << endl;
+	cout << a << endl;
 
 	_getch();
 	return 0;

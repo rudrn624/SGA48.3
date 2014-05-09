@@ -47,6 +47,41 @@ Matrix& Matrix::operator = (const Matrix& o)
 
 	return *this;
 }
+Matrix& Matrix::operator = (const float& v)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		m[i] = v;
+	}
+
+	return *this;
+}
+Matrix& Matrix::operator = (const int& v)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		m[i] = float(v);
+	}
+
+	return *this;
+}
+Matrix& Matrix::operator ++ ()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		m[i] += 1.f;
+	}
+	
+	return *this;
+}
+Matrix Matrix::operator ++ (int)
+{
+	Matrix tmp(*this);
+
+	++*this;
+
+	return tmp;
+}
 Matrix Matrix::operator * (const Matrix& o) const
 {
 	Matrix tmp;
@@ -58,11 +93,30 @@ Matrix Matrix::operator * (const Matrix& o) const
 
 	return tmp;
 }
-void Matrix::print() const
+float& Matrix::operator [] (const char* name)
 {
-	cout << m[0] << ' ' << m[1] << endl;
-	cout << m[2] << ' ' << m[3] << endl;
+	static float error = 0;
+
+	if (strcmp(name, "one") == 0)
+	{
+		return m[0];
+	}
+	else if (strcmp(name, "two") == 0)
+	{
+		return m[1];
+	}
+	else if (strcmp(name, "three") == 0)
+	{
+		return m[2];
+	}
+	else if (strcmp(name, "four") == 0)
+	{
+		return m[3];
+	}
+
+	return error;
 }
+
 
 Matrix operator * (const Matrix& lhs, const float& rhs)
 {
