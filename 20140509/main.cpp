@@ -70,6 +70,7 @@ int main(void)
 	cout << "c = 3 * d" << endl;
 	c = 3 * d;
 
+	// 또다른 주석 추가.
 	cout << "Matrix d : " << endl;
 	cout << d << endl;
 	cout << "Matrix c : " << endl;
