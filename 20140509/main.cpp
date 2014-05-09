@@ -6,6 +6,7 @@ using namespace std;
 
 int main(void)
 {
+	// 주석 추가.
 	Matrix a, b;
 
 	cout << "Matrix a : " << endl;
