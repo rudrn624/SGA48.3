@@ -70,10 +70,10 @@ private :
 	int dy;
 };
 
-class Triangle : public Shape
+class Airplane : public Shape
 {
 public :
-	Triangle();
+	Airplane();
 	void SetSize(const int& size);
 	void SetCenter(const int& x, const int& y);
 	void Update();

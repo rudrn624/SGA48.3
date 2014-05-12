@@ -36,9 +36,9 @@ int main(void)
 
 	Enemy* enemies[3] = {&a,&b,&c};
 
-	a.SetCenter(5, 5);
-	b.SetCenter(15, 7);
-	c.SetCenter(50, 5);
+	a.SetPosition(Point(5, 5));
+	b.SetPosition(Point(15, 7));
+	c.SetPosition(Point(50, 5));
 
 
 	int x = width/2;
@@ -46,10 +46,10 @@ int main(void)
 	int dx = 1;
 	int dy = 1;
 	//one.SetRadius(5);
-	//one.SetCenter(x, y);
+	//one.SetPosition(x, y);
 	//two.SetSize(15,15);
-	//two.SetCenter(x, y);
-	three.SetCenter(x,18);
+	//two.SetPosition(x, y);
+	three.SetPosition(Point(x,18));
 	three.SetSize(3);
 
 	while (true)
@@ -63,28 +63,26 @@ int main(void)
 				key = _getch();
 				if (key == LEFT)
 				{
-					three.Move(-1, 0);
+					three.Move(Point(-1, 0));
 				}
 				else if (key == RIGHT)
 				{
-					three.Move(1, 0);
+					three.Move(Point(1, 0));
 				}
 				else if (key == UP)
 				{
-					three.Move(0, -1);
+					three.Move(Point(0, -1));
 				}
 				else if (key == DOWN)
 				{
-					three.Move(0, 1);
+					three.Move(Point(0, 1));
 				}
 			}
 			else if (key == SPACE)
 			{
 				Bullet* pBullet = NULL;
 				pBullet = new Bullet;
-				int x, y;
-				three.GetPosition(x, y);
-				pBullet->SetPosition(x, y);
+				pBullet->SetPosition(three.GetPosition());
 
 				bulletDepot.insert(pBullet);
 			}
@@ -106,9 +104,8 @@ int main(void)
 		{
 			bulletDepot.value()->Update();
 
-			int x, y;
-			bulletDepot.value()->GetPosition(x, y);
-			if (y < 0)
+			Point pt = bulletDepot.value()->GetPosition();
+			if (pt.gety() < 0)
 			{
 				bulletDepot.remove();
 			}
@@ -131,24 +128,21 @@ int main(void)
 		{
 			if (some[i])
 			{
-				some[i] >> board;
+				(*some[i]) >> board;
 			}
-				//some[i]->Draw(board);
 		}
 
 		for (int i = 0; i < 3; i++)
 		{
 			if (enemies[i])
 			{
-				enemies[i] >> board;
+				(*enemies[i]) >> board;
 			}
-				//enemies[i]->Draw(board);
 		}
 		for (bulletDepot.go_front(), it = bulletDepot.begin(); it != bulletDepot.end();
 			bulletDepot.next(), it = it->next)
 		{
-			bulletDepot.value() >> board;
-			//bulletDepot.value()->Draw(board);
+			(*bulletDepot.value()) >> board;
 		}
 		//one.Draw(board);
 		//two.Draw(board);

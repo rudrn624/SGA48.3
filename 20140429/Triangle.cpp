@@ -1,22 +1,22 @@
 ﻿#include "define.h"
 
-Triangle::Triangle()
+Airplane::Airplane()
 : _x(0), _y(0), _size(0)
 {
 }
-void Triangle::SetSize(const int& size)
+void Airplane::SetSize(const int& size)
 {
 	_size = size;
 }
-void Triangle::SetCenter(const int& x, const int& y)
+void Airplane::SetCenter(const int& x, const int& y)
 {
 	_x = x;
 	_y = y;
 }
-void Triangle::Update()
+void Airplane::Update()
 {
 }
-void Triangle::Draw(char* board)
+void Airplane::Draw(char* board)
 {
 	for (int i = 0; i < _size; i++)
 	{
@@ -30,12 +30,12 @@ void Triangle::Draw(char* board)
 		}
 	}
 }
-void Triangle::Move(const int& dx, const int& dy)
+void Airplane::Move(const int& dx, const int& dy)
 {
 	_x = _x + dx;
 	_y = _y + dy;
 }
-void Triangle::GetPosition(int& x, int& y)
+void Airplane::GetPosition(int& x, int& y)
 {
 	x = _x;
 	y = _y;
