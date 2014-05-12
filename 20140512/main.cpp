@@ -23,12 +23,13 @@ int main(void)
 	}
 
 	LinkedList bulletDepot;
+	int nPointCount = 0;
 
 	//Circle one;
 	//Square two;
 	Airplane three;
 
-	Shape* some[3] = {&three};//, &two, &three};
+	Shape* myShip[3] = {&three};//, &two, &three};
 
 	TypeA a;
 	TypeB b;
@@ -91,8 +92,8 @@ int main(void)
 		// update
 		for (int i = 0; i < 3; i++)
 		{
-			if (some[i])
-				some[i]->Update();
+			if (myShip[i])
+				myShip[i]->Update();
 		}
 		for (int i = 0; i < 3; i++)
 		{
@@ -115,8 +116,6 @@ int main(void)
 				it = it->next;
 			}
 		}
-		//one.Update();
-		//two.Update();
 
 		// draw
 		// board 에 그리기
@@ -126,9 +125,9 @@ int main(void)
 		}
 		for (int i = 0; i < 3; i++)
 		{
-			if (some[i])
+			if (myShip[i])
 			{
-				(*some[i]) >> board;
+				(*myShip[i]) >> board;
 			}
 		}
 
@@ -159,6 +158,8 @@ int main(void)
 		}
 		cout << "current bullet count : ";
 		cout << bulletDepot.size() << endl;
+		cout << "current point : ";
+		cout << nPointCount << endl;
 	}
 
 	_getch();
