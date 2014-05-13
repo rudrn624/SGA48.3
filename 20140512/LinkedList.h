@@ -7,9 +7,10 @@
 
 using namespace std;
 
+template<typename T>
 struct DoubleNode
 {
-	typedef Bullet* data_type;
+	typedef T data_type;
 	typedef DoubleNode* pointer;
 
 	DoubleNode(const data_type& v, const pointer& p, const pointer& n);
@@ -22,10 +23,11 @@ struct DoubleNode
 	pointer prev;
 };
 
+template<typename T>
 class LinkedList
 {
 public :
-	typedef DoubleNode Node;
+	typedef DoubleNode<T> Node;
 	typedef Node* Nodeptr;
 	typedef Node::data_type data_type;
 	typedef unsigned int size_type;

@@ -24,6 +24,17 @@ Point Point::operator + (const Point& some)
 {
 	return Point(_x + some._x, _y + some._y);
 }
+Point Point::operator - (const Point& some)
+{
+	return Point(_x - some._x, _y - some._y);
+}
+float Point::operator ^ (const Point& some)
+{
+	return sqrt(float(
+		(_x-some._x)*(_x-some._x) +
+		(_y-some._y)*(_y-some._y)
+		));
+}
 Point& Point::operator += (const Point& some)
 {
 	_x += some._x;
