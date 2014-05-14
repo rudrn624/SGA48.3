@@ -22,7 +22,7 @@ int main(void)
 		board[i] = ' ';
 	}
 
-	LinkedList<Bullet*> bulletDepot;
+	LinkedList bulletDepot;
 	int nPointCount = 0;
 
 	//Circle one;
@@ -100,7 +100,7 @@ int main(void)
 			if (enemies[i])
 				enemies[i]->Update();
 		}
-		LinkedList<Bullet*>::Node* it;
+		LinkedList::Node* it;
 		for (bulletDepot.go_front(), it = bulletDepot.begin(); it != bulletDepot.end();)
 		{
 			bulletDepot.value()->Update();
