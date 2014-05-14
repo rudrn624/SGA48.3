@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="20140513"
-	ProjectGUID="{CE18639E-55D2-479F-B23F-1AE9BCB28BE2}"
-	RootNamespace="My20140513"
+	Name="20140514"
+	ProjectGUID="{2D8DD299-ABEF-43B8-98B6-E7464D481650}"
+	RootNamespace="My20140514"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -171,19 +171,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\main_template.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\main_template2.cpp"
+				RelativePath=".\main.cpp"
 				>
 			</File>
 		</Filter>
@@ -198,6 +186,14 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+		</Filter>
+		<Filter
+			Name="LinkedList"
+			>
+			<File
+				RelativePath=".\LinkedList.hpp"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>

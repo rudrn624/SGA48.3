@@ -3,15 +3,22 @@
 
 using namespace std;
 
-template<typename T1, 
-		 typename T2> 
-void MySwap(T1& a, T2& b)
+template<typename T>
+void SafeDelete(T& pointer)
 {
-	T2 c = a;
-	a = b;
-	b = c;
-}
+	cout << "in func" << endl;
 
+	cout << pointer << endl;
+	cout << &pointer << endl;
+
+	if (pointer)
+	{
+		delete [] pointer;
+		pointer = NULL;
+	}
+
+	cout << "out func" << endl;
+}
 
 int main(void)
 {
@@ -22,17 +29,12 @@ int main(void)
 		pA = new int;
 	}
 
-	// todo...
 
-
+	cout << pA << endl;
+	cout << &pA << endl;
 	SafeDelete(pA);
-	//if (pA)
-	//{
-	//	delete pA;
-	//	pA = NULL;
-	//}
-
-	cout 
+	cout << pA << endl;
+	cout << &pA << endl;
 
 
 	_getch();
