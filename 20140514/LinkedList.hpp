@@ -20,14 +20,65 @@ struct DoubleNode
 	pointer prev;
 };
 
+template<typename T, typename Container>
+class Iterator
+{
+public :
+	typedef Iterator<T, Container> Me;
+	typedef typename Container::Node Node;
+	typedef typename Container::Nodeptr Nodeptr;
+	typedef typename Container::data_type data_type;
+public :
+	Iterator()
+		: depot(NULL), data(NULL)
+	{}
+	Iterator(Container* cont, Nodeptr p)
+		: depot(cont), data(p)
+	{}
+
+	Me& operator ++ ()
+	{
+		data = data->next;
+
+		return *this;
+	}
+	Me operator ++ (int)
+	{
+		Me tmp(*this);
+
+		++(*this);
+
+		return tmp;
+	}
+	data_type& operator * ()
+	{
+		return data->next->value;
+	}
+	bool operator == (const Me& o)
+	{
+		return (depot == o.depot && data == o.data);
+	}
+	bool operator != (const Me& o)
+	{
+		return (depot != o.depot || data != o.data);
+	}
+
+private :
+	Container* depot;
+	Nodeptr data;
+};
+
 template<typename T>
 class LinkedList
 {
 public :
+	typedef LinkedList<T> Me;
 	typedef DoubleNode<T> Node;
 	typedef Node* Nodeptr;
 	typedef typename Node::data_type data_type;
 	typedef unsigned int size_type;
+
+	typedef Iterator<T, Me> iterator;
 
 public :
 	LinkedList()
@@ -145,13 +196,13 @@ public :
 		current = current->prev;
 	}
 
-	Node* begin() const
+	iterator begin()
 	{
-		return head;
+		return iterator(this, head);
 	}
-	Node* end() const
+	iterator end()
 	{
-		return tail->prev;
+		return iterator(this, tail->prev);
 	}
 
 	bool empty() const
